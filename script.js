@@ -16,43 +16,21 @@ document.getElementById('stock-form').addEventListener('submit', async function(
     // Convert dd-mm-yyyy to ISO format (yyyy-mm-dd)
     const [day, month, year] = buyDateInput.split('-');
     const buyDate = new Date(`${year}-${month}-${day}`).toISOString().split('T')[0];
-    try{
-    const response = await fetch('/api/stocks', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ name: stockName, buyPrice, quantity, buyDate })
-    });
 
-    if (!response.ok) {
-        throw new Error('Failed to save stock data');
-    }
+    const newStock = { name: stockName, buyPrice, quantity, buyDate };
 
-    const stock = await response.json();
-    addStockToTable(stock);
+    let stocks = JSON.parse(localStorage.getItem('stocks')) || [];
+    stocks.push(newStock);
+    localStorage.setItem('stocks', JSON.stringify(stocks));
+
+    addStockToTable(newStock);
 
     document.getElementById('stock-form').reset();
-} catch (error) {
-    console.error('Error:', error);
-    alert('Failed to save stock data');
-}
 });
 
-
-
 async function fetchStocks() {
-    try{
-    const response = await fetch('/api/stocks');
-    if (!response.ok) {
-        throw new Error('Failed to fetch stock data');
-    }
-    const stocks = await response.json();
+    const stocks = JSON.parse(localStorage.getItem('stocks')) || [];
     stocks.forEach(addStockToTable);
-} catch (error) {
-    console.error('Error:', error);
-    alert('Failed to fetch stock data');
-}
 }
 
 function addStockToTable(stock) {
