@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container moving-glow">
+        <h1>Stock Holdings Portfolio</h1>
+        <form id="stockForm">
+            <div>
+                <label for="stockName">Stock Name:</label>
+                <input type="text" id="stockName" required>
+            </div>
+            <div>
+                <label for="buyDate">Buy Date:</label>
+                <input type="date" id="buyDate" required>
+            </div>
+            <div>
+                <label for="quantity">Quantity:</label>
+                <input type="number" id="quantity" required>
+            </div>
+            <div>
+                <label for="buyPrice">Buy Price:</label>
+                <input type="number" id="buyPrice" required>
+            </div>
+            <form class="centerd-form">
+                <button type="submit" class="styled-button">Add Stock</button>
+        </form>
+        </form>
+        </div>
+        <table>
+        <h1>Stock Holdings</h1>
+        
+            <thead>
+                <tr>
+                    <th>Stock Name</th>
+                    <th>Buy Date</th>
+                    <th>Quantity</th>
+                    <th>Buy Price</th>
+                    <th>Sell Price</th>
+                    <th>Sell Date</th>
+                    <th>Profit</th>
+                    <th>Duration</th>
+                    <th>Edit</th>
+                </tr>
+            </thead>
+            <tbody id="stockTable">
+                <!-- Rows will be added dynamically here -->
+            </tbody>
+        </table>
+    
+    <script src="script.js"></script>
+</body>
+</html>
