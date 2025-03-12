@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Money Control - Stock Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Stock Portfolio Tracker</h1>
+
+        <!-- Stock Entry Form -->
+        <form id="stockForm">
+            <input type="text" id="name" placeholder="Stock Name" required>
+            <input type="number" id="quantity" placeholder="Quantity" required>
+            <input type="number" id="buyPrice" placeholder="Buy Price (₹)" required>
+            <input type="date" id="buyDate" required>
+            <button type="submit">Add Stock</button>
+        </form>
+
+        <!-- Stock Table -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Quantity</th>
+                    <th>Buy Price (₹)</th>
+                    <th>Buy Date</th>
+                    <th>Sell Price (₹)</th>
+                    <th>Sell Date</th>
+                    <th>Profit/Loss (₹)</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="stockTableBody">
+                <!-- Stocks will be listed here -->
+            </tbody>
+        </table>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
