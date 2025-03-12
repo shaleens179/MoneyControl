@@ -1,4 +1,4 @@
-const API_URL = "mysql://root:oUbHlwjIOsDILnbhkmHLUHCsxZzJOvjN@mysql.railway.internal:3306/railway/stocks"; // Your Spring Boot API
+const API_URL = "https://mcontrol-production.up.railway.app/stocks"; // Your Spring Boot API
 
 // Load stocks when the page loads
 document.addEventListener("DOMContentLoaded", fetchStocks);
